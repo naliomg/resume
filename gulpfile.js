@@ -7,7 +7,7 @@ var htmlmin = require('gulp-htmlmin'); //html压缩
 var imagemin = require('gulp-imagemin'); //图片压缩
 //注册样式编译任务
 gulp.task('style', function() {
-    gulp.src('src/css/*.css')
+    gulp.src('src/styles/*.css')
         .pipe(autoprefixer({browsers: [
             "ie >= 8",
             "ie_mob >= 10",
@@ -20,17 +20,17 @@ gulp.task('style', function() {
             "bb >= 10"
         ]}))
         .pipe(cssnano())
-        .pipe(gulp.dest('dist/css'));
+        .pipe(gulp.dest('dist/styles'));
 });
 gulp.task('image', function() {
-    gulp.src('src/img/**/*.*')
+    gulp.src('src/images/*.*')
         .pipe(imagemin())
-        .pipe(gulp.dest('dist/img'));
+        .pipe(gulp.dest('dist/images'));
 });
 gulp.task('script', function() {
-    gulp.src('src/js/*.js')
+    gulp.src('src/scripts/*.js')
         .pipe(uglify())
-        .pipe(gulp.dest('dist/js'));
+        .pipe(gulp.dest('dist/scripts'));
 });
 gulp.task('html', function() {
     gulp.src('src/*.html')
